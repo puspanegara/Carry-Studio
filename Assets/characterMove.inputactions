@@ -1,0 +1,52 @@
+{
+    "name": "characterMove",
+    "maps": [
+        {
+            "name": "Character",
+            "id": "420a648e-e682-4794-a13e-c555c73dcc04",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "f72d0830-0528-4a87-82e9-d06590151c06",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "bf745a40-4fe5-4afb-94de-df93829a12fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "065b3f8a-cf3d-4b5d-a50c-99584187e0c6",
+                    "path": "<HID:: USB Gamepad          >/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8749d9d0-a330-446d-97b0-454be9ad006f",
+                    "path": "<HID:: USB Gamepad          >/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
