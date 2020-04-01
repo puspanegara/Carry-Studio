@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 827fbdf3323d2a14f8443aef2febccd9
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0e05de0fb01419f4297a1208624343e3
+  - enabled: 1
+    path: Assets/Scenes/Prolog.unity
+    guid: 0876d53d92a17f84c91aa9b4a066fcf0
   m_configObjects: {}
