@@ -14,19 +14,19 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Jump",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "bf745a40-4fe5-4afb-94de-df93829a12fa",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "065b3f8a-cf3d-4b5d-a50c-99584187e0c6",
-                    "path": "<HID:: USB Gamepad          >/stick",
+                    "path": "<HID::Twin USB Gamepad      >/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -37,11 +37,11 @@
                 {
                     "name": "",
                     "id": "8749d9d0-a330-446d-97b0-454be9ad006f",
-                    "path": "<HID:: USB Gamepad          >/button6",
+                    "path": "<HID::Twin USB Gamepad      >/button3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

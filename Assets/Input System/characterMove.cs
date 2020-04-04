@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/characterMove.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input System/characterMove.inputactions'
 
 using System;
 using System.Collections;
@@ -27,19 +27,19 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""bf745a40-4fe5-4afb-94de-df93829a12fa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""065b3f8a-cf3d-4b5d-a50c-99584187e0c6"",
-                    ""path"": ""<HID:: USB Gamepad          >/stick"",
+                    ""path"": ""<HID::Twin USB Gamepad      >/stick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -50,11 +50,11 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8749d9d0-a330-446d-97b0-454be9ad006f"",
-                    ""path"": ""<HID:: USB Gamepad          >/button6"",
+                    ""path"": ""<HID::Twin USB Gamepad      >/button3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -66,7 +66,7 @@ public class @CharacterMove : IInputActionCollection, IDisposable
         // Character
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
-        m_Character_Jump = m_Character.FindAction("Jump", throwIfNotFound: true);
+        m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -117,13 +117,13 @@ public class @CharacterMove : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Character;
     private ICharacterActions m_CharacterActionsCallbackInterface;
     private readonly InputAction m_Character_Move;
-    private readonly InputAction m_Character_Jump;
+    private readonly InputAction m_Character_Interact;
     public struct CharacterActions
     {
         private @CharacterMove m_Wrapper;
         public CharacterActions(@CharacterMove wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Character_Move;
-        public InputAction @Jump => m_Wrapper.m_Character_Jump;
+        public InputAction @Interact => m_Wrapper.m_Character_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,9 +136,9 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnJump;
+                @Interact.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_CharacterActionsCallbackInterface = instance;
             if (instance != null)
@@ -146,9 +146,9 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -156,6 +156,6 @@ public class @CharacterMove : IInputActionCollection, IDisposable
     public interface ICharacterActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

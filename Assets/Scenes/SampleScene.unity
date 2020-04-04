@@ -153,7 +153,7 @@ MonoBehaviour:
   m_NotificationBehavior: 0
   m_MaxPlayerCount: 2
   m_AllowJoining: 1
-  m_JoinBehavior: 2
+  m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -604,17 +604,32 @@ PrefabInstance:
     - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: horizontalMove
-      value: jh1
+      value: Hor 1
       objectReference: {fileID: 0}
     - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: verticalMove
-      value: jv1
+      value: Ver 1
       objectReference: {fileID: 0}
     - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: jumpMove
-      value: jj1
+      value: Button1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
+        type: 3}
+      propertyPath: gravity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
+        type: 3}
+      propertyPath: actMode
+      value: Button3 1
       objectReference: {fileID: 0}
     - target: {fileID: 8660483790247883272, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
@@ -754,7 +769,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537245585}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
@@ -1139,17 +1154,22 @@ PrefabInstance:
     - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: horizontalMove
-      value: jh2
+      value: Hor 2
       objectReference: {fileID: 0}
     - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: verticalMove
-      value: jv2
+      value: Ver 2
       objectReference: {fileID: 0}
     - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: jumpMove
       value: jj2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660483790247883271, guid: 2b5742769d8438c449ccdbce337d9f61,
+        type: 3}
+      propertyPath: actMode
+      value: Button3 2
       objectReference: {fileID: 0}
     - target: {fileID: 8660483790247883272, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
@@ -1214,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 8660483790247883276, guid: 2b5742769d8438c449ccdbce337d9f61,
         type: 3}
       propertyPath: m_Name
-      value: Player1 (1)
+      value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b5742769d8438c449ccdbce337d9f61, type: 3}

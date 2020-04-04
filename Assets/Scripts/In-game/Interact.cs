@@ -6,16 +6,11 @@ public class Interact : MonoBehaviour
 {
    public Transform theDest;
 
-   void OnButtonInteractDown()
+   void OnInteract()
    {
        GetComponent<Rigidbody>().useGravity = false;
        this.transform.position = theDest.position;
        this.transform.parent = GameObject.Find("Destination").transform;
    }
 
-   void OnButtonInteractUp()
-   {
-       this.transform.parent = null;
-       GetComponent<Rigidbody>().useGravity = true;
-   }
 }

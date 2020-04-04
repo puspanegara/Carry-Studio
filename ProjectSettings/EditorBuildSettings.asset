@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prolog.unity
     guid: 0876d53d92a17f84c91aa9b4a066fcf0
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: f11057bb5837368448a8e728979c7ac2,
+      type: 2}
