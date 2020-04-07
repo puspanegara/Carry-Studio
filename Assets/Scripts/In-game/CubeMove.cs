@@ -27,20 +27,21 @@ public class CubeMove : MonoBehaviour
     {
      CharacterController controller = GetComponent<CharacterController>();
 
-    //Mengecek keberadaan diatas tanah
-     if(controller.isGrounded) 
-     {
-         //input contoller pemain
-        moveDirection= new  Vector3 (0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= moveSpeed;
-    /*
-        if(Input.GetButton(jumpMove))
-        moveDirection.y = jumpPower;
-    */
-     }
+            //Mengecek keberadaan diatas tanah
+            if(controller.isGrounded) 
+            {
+                //input contoller pemain
+                moveDirection= new  Vector3 (0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju
+                moveDirection = transform.TransformDirection(moveDirection);
+                moveDirection *= moveSpeed;
+            /*
+                if(Input.GetButton(jumpMove))
+                moveDirection.y = jumpPower;
+            */
+            }
         moveDirection.y -= gravity *Time.deltaTime;
         controller.Move(moveDirection*Time.deltaTime); 
+
         //pemain berputar
         //Berputar kekanan kiri untuk melihat sekeliling
         transform.Rotate(0, Input.GetAxis(horizontalMove), 0);  
@@ -48,8 +49,7 @@ public class CubeMove : MonoBehaviour
 
     private void OnInteract()
     {
-        
-        Debug.Log("I N  T E A R C T");
+       Debug.Log("I N  T E A R C T");
     }
 }
 

@@ -33,6 +33,22 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Ignore"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8575d11-dff5-4600-b891-f50d581ba6ed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""349af121-1fe9-4c95-b608-2d3eb4092d8d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -57,6 +73,28 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce560131-e5f5-4bdb-8e61-362c58e035e8"",
+                    ""path"": ""<HID::Twin USB Gamepad      >/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ignore"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ac04934-ee1b-4a94-b416-634b4fcae608"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -67,6 +105,8 @@ public class @CharacterMove : IInputActionCollection, IDisposable
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
         m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
+        m_Character_Ignore = m_Character.FindAction("Ignore", throwIfNotFound: true);
+        m_Character_Newaction = m_Character.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +158,16 @@ public class @CharacterMove : IInputActionCollection, IDisposable
     private ICharacterActions m_CharacterActionsCallbackInterface;
     private readonly InputAction m_Character_Move;
     private readonly InputAction m_Character_Interact;
+    private readonly InputAction m_Character_Ignore;
+    private readonly InputAction m_Character_Newaction;
     public struct CharacterActions
     {
         private @CharacterMove m_Wrapper;
         public CharacterActions(@CharacterMove wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Character_Move;
         public InputAction @Interact => m_Wrapper.m_Character_Interact;
+        public InputAction @Ignore => m_Wrapper.m_Character_Ignore;
+        public InputAction @Newaction => m_Wrapper.m_Character_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -139,6 +183,12 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
+                @Ignore.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnIgnore;
+                @Ignore.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnIgnore;
+                @Ignore.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnIgnore;
+                @Newaction.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNewaction;
             }
             m_Wrapper.m_CharacterActionsCallbackInterface = instance;
             if (instance != null)
@@ -149,6 +199,12 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Ignore.started += instance.OnIgnore;
+                @Ignore.performed += instance.OnIgnore;
+                @Ignore.canceled += instance.OnIgnore;
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
             }
         }
     }
@@ -157,5 +213,7 @@ public class @CharacterMove : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnIgnore(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
