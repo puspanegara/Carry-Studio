@@ -9,21 +9,19 @@ public class PickUp : MonoBehaviour
   
   public GameObject MessagePanel;
 
-    [SerializeField] private Material highlightMaterial;
   private void Start()
   {
       inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
   }
    public void OpenMessagePanel()
   {
-      //Mengaktifkan pesan barang bisa di ambil
       MessagePanel.SetActive(true);
   }
 
   public void CloseMessagePanel()
   {
       //Menutup pesan Jika menjauh dari benda
-      MessagePanel.SetActive(false); 
+      MessagePanel.SetActive(false);
   }
 
   private void OnTriggerEnter(Collider other) {

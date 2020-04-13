@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - item
+  - Player2
+  - Wall
   layers:
   - Default
   - TransparentFX
