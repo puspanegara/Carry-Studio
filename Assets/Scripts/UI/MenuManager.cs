@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public void Level1()
     {
-        SceneManager.LoadScene("Prolog");
+        Debug.Log("Run");
+        //SceneManager.LoadScene("Prolog");
     }
 }

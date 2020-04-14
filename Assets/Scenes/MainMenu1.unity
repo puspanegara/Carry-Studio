@@ -630,9 +630,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.9056604, g: 0.012815925, b: 0.012815925, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0.73840237, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0.8365736, a: 1}
+    m_SelectedColor: {r: 1, g: 0, b: 0.710083, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -648,7 +648,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1080775505}
+  m_TargetGraphic: {fileID: 1203038159}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -748,9 +748,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.90588236, g: 0.011764706, b: 0.011764706, a: 1}
-    m_PressedColor: {r: 0.9056604, g: 0.012815925, b: 0.012815925, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6019249, g: 0, b: 1, a: 1}
+    m_PressedColor: {r: 0.6, g: 0, b: 1, a: 1}
+    m_SelectedColor: {r: 0.6, g: 0, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1045,13 +1045,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257901310}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: jh1
-  m_VerticalAxis: jv1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -1408,9 +1408,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.9056604, g: 0.012815925, b: 0.012815925, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0.73840237, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0.8365736, a: 1}
+    m_SelectedColor: {r: 1, g: 0, b: 0.710083, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1426,7 +1426,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1914145716}
+  m_TargetGraphic: {fileID: 289711386}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
