@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Interact",
+                    "name": "Multi Function",
                     "type": "Button",
                     "id": "bf745a40-4fe5-4afb-94de-df93829a12fa",
                     "expectedControlType": "Button",
@@ -30,9 +30,17 @@
                     "interactions": "Press(behavior=2)"
                 },
                 {
-                    "name": "New action",
+                    "name": "Select Button",
                     "type": "Button",
                     "id": "349af121-1fe9-4c95-b608-2d3eb4092d8d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Vertical ",
+                    "type": "Button",
+                    "id": "349559f0-c3f6-4bb7-8946-96e779f28ed0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
@@ -57,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Multi Function",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -75,11 +83,22 @@
                 {
                     "name": "",
                     "id": "9ac04934-ee1b-4a94-b416-634b4fcae608",
-                    "path": "",
+                    "path": "<HID::Twin USB Gamepad      >/button9",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Select Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1772430-2889-4f9d-837d-e74859123803",
+                    "path": "<HID::Twin USB Gamepad      >/hat/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical ",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

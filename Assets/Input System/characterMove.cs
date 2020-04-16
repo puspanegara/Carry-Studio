@@ -27,7 +27,7 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""Multi Function"",
                     ""type"": ""Button"",
                     ""id"": ""bf745a40-4fe5-4afb-94de-df93829a12fa"",
                     ""expectedControlType"": ""Button"",
@@ -43,9 +43,17 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=2)""
                 },
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Select Button"",
                     ""type"": ""Button"",
                     ""id"": ""349af121-1fe9-4c95-b608-2d3eb4092d8d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Vertical "",
+                    ""type"": ""Button"",
+                    ""id"": ""349559f0-c3f6-4bb7-8946-96e779f28ed0"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
@@ -70,7 +78,7 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""Multi Function"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -88,11 +96,22 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9ac04934-ee1b-4a94-b416-634b4fcae608"",
-                    ""path"": """",
+                    ""path"": ""<HID::Twin USB Gamepad      >/button9"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Select Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1772430-2889-4f9d-837d-e74859123803"",
+                    ""path"": ""<HID::Twin USB Gamepad      >/hat/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical "",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -104,9 +123,10 @@ public class @CharacterMove : IInputActionCollection, IDisposable
         // Character
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
-        m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
+        m_Character_MultiFunction = m_Character.FindAction("Multi Function", throwIfNotFound: true);
         m_Character_Ignore = m_Character.FindAction("Ignore", throwIfNotFound: true);
-        m_Character_Newaction = m_Character.FindAction("New action", throwIfNotFound: true);
+        m_Character_SelectButton = m_Character.FindAction("Select Button", throwIfNotFound: true);
+        m_Character_Vertical = m_Character.FindAction("Vertical ", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -157,17 +177,19 @@ public class @CharacterMove : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Character;
     private ICharacterActions m_CharacterActionsCallbackInterface;
     private readonly InputAction m_Character_Move;
-    private readonly InputAction m_Character_Interact;
+    private readonly InputAction m_Character_MultiFunction;
     private readonly InputAction m_Character_Ignore;
-    private readonly InputAction m_Character_Newaction;
+    private readonly InputAction m_Character_SelectButton;
+    private readonly InputAction m_Character_Vertical;
     public struct CharacterActions
     {
         private @CharacterMove m_Wrapper;
         public CharacterActions(@CharacterMove wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Character_Move;
-        public InputAction @Interact => m_Wrapper.m_Character_Interact;
+        public InputAction @MultiFunction => m_Wrapper.m_Character_MultiFunction;
         public InputAction @Ignore => m_Wrapper.m_Character_Ignore;
-        public InputAction @Newaction => m_Wrapper.m_Character_Newaction;
+        public InputAction @SelectButton => m_Wrapper.m_Character_SelectButton;
+        public InputAction @Vertical => m_Wrapper.m_Character_Vertical;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,15 +202,18 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
-                @Interact.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnInteract;
+                @MultiFunction.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMultiFunction;
+                @MultiFunction.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMultiFunction;
+                @MultiFunction.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMultiFunction;
                 @Ignore.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnIgnore;
                 @Ignore.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnIgnore;
                 @Ignore.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnIgnore;
-                @Newaction.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnNewaction;
+                @SelectButton.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnSelectButton;
+                @SelectButton.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnSelectButton;
+                @SelectButton.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnSelectButton;
+                @Vertical.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnVertical;
+                @Vertical.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnVertical;
+                @Vertical.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnVertical;
             }
             m_Wrapper.m_CharacterActionsCallbackInterface = instance;
             if (instance != null)
@@ -196,15 +221,18 @@ public class @CharacterMove : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @MultiFunction.started += instance.OnMultiFunction;
+                @MultiFunction.performed += instance.OnMultiFunction;
+                @MultiFunction.canceled += instance.OnMultiFunction;
                 @Ignore.started += instance.OnIgnore;
                 @Ignore.performed += instance.OnIgnore;
                 @Ignore.canceled += instance.OnIgnore;
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @SelectButton.started += instance.OnSelectButton;
+                @SelectButton.performed += instance.OnSelectButton;
+                @SelectButton.canceled += instance.OnSelectButton;
+                @Vertical.started += instance.OnVertical;
+                @Vertical.performed += instance.OnVertical;
+                @Vertical.canceled += instance.OnVertical;
             }
         }
     }
@@ -212,8 +240,9 @@ public class @CharacterMove : IInputActionCollection, IDisposable
     public interface ICharacterActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnMultiFunction(InputAction.CallbackContext context);
         void OnIgnore(InputAction.CallbackContext context);
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnSelectButton(InputAction.CallbackContext context);
+        void OnVertical(InputAction.CallbackContext context);
     }
 }

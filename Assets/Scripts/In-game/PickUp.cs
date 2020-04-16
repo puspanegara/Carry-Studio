@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour
 {
-  private Inventory inventory;
-  
+
   public GameObject MessagePanel;
+  public float radius= 3f;
 
   private void Start()
   {
-      inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+     
   }
    public void OpenMessagePanel()
   {
@@ -22,6 +22,11 @@ public class PickUp : MonoBehaviour
   {
       //Menutup pesan Jika menjauh dari benda
       MessagePanel.SetActive(false);
+  }
+
+    void OnDrawGizmosSelected() {
+    Gizmos.color = Color.yellow;
+    Gizmos.DrawWireSphere(transform.position, radius);   
   }
 
   private void OnTriggerEnter(Collider other) {
@@ -48,7 +53,7 @@ public class PickUp : MonoBehaviour
     Debug.Log("Collactable Item");
   }
   
-  private void OnTriggerExit(Collider other) {
+  /*private void OnTriggerExit(Collider other) {
       //Jika pemain sudah menjauh 
       //Maka pesan akan tertutup secara otomatis
    Inventory item= other.GetComponent<Inventory>();
@@ -57,4 +62,9 @@ public class PickUp : MonoBehaviour
        CloseMessagePanel();
    }  
   }
+  */
+
+  //Collision untuk Camera agar tidak nembus ke tembok
+
+  
 }

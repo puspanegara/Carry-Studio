@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    //Animator yang digunakan
     private Animator _anim;
+    //Animasi pintu yang digunakan
+    public Animation hingehere;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +15,11 @@ public class Door : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnTriggerStay(Collider other)
     {
-        
+        if(Input.GetKey(KeyCode.E))
+        {
+            hingehere.Play();
+        }    
     }
 }
