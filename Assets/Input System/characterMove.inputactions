@@ -1,0 +1,109 @@
+{
+    "name": "characterMove",
+    "maps": [
+        {
+            "name": "Character",
+            "id": "420a648e-e682-4794-a13e-c555c73dcc04",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "f72d0830-0528-4a87-82e9-d06590151c06",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Multi Function",
+                    "type": "Button",
+                    "id": "bf745a40-4fe5-4afb-94de-df93829a12fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Ignore",
+                    "type": "Button",
+                    "id": "c8575d11-dff5-4600-b891-f50d581ba6ed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Select Button",
+                    "type": "Button",
+                    "id": "349af121-1fe9-4c95-b608-2d3eb4092d8d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Vertical ",
+                    "type": "Button",
+                    "id": "349559f0-c3f6-4bb7-8946-96e779f28ed0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "065b3f8a-cf3d-4b5d-a50c-99584187e0c6",
+                    "path": "<HID::Twin USB Gamepad      >/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8749d9d0-a330-446d-97b0-454be9ad006f",
+                    "path": "<HID::Twin USB Gamepad      >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Multi Function",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce560131-e5f5-4bdb-8e61-362c58e035e8",
+                    "path": "<HID::Twin USB Gamepad      >/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ignore",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ac04934-ee1b-4a94-b416-634b4fcae608",
+                    "path": "<HID::Twin USB Gamepad      >/button9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1772430-2889-4f9d-837d-e74859123803",
+                    "path": "<HID::Twin USB Gamepad      >/hat/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
