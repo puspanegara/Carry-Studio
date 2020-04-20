@@ -44,22 +44,45 @@ public class CubeMove : MonoBehaviour
     
     private Vector3 moveDirection =  Vector3.zero;
     public Rigidbody rb;
-    Camera cam;
-    PlayerMotor motor;
-
     public Interactable focus;
-
-    
+    public LayerMask movementMask;
+    Camera cam; 
+    PlayerMotor motor;
 
     // Start is called before the first frame update
     void Start() {
         cam = Camera.main;
+        motor=GetComponent<PlayerMotor>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray=cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit, 100, movementMask))
+            {
+                motor.MoveToPoint(hit.point);
+                RemoveFocus;
+            }
+        if(Input.GetMouseButtonDown(1))
+        {
+            Ray ray=cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit, 100, 100))
+            {
+                Interactable interactable=hit.collider.GetComponent<Interactable>();
+                if(interactable != null)
+                {
+                    SetFocus(interactable);
+                }
+            }
+        }
     }
 
     void SetFocus(Interactable newFocus)
@@ -96,7 +119,8 @@ public class CubeMove : MonoBehaviour
         transform.Rotate(0, Input.GetAxis(horizontalMove), 0);  
     }
 
-     void OnControllerColliderHit(ControllerColliderHit hit) {
+     void OnControllerColliderHit(ControllerColliderHit hit)
+     {
 
         Rigidbody rigid= hit.collider.attachedRigidbody;
         if(rigid != null &&  rigid.isKinematic == false)
@@ -104,6 +128,7 @@ public class CubeMove : MonoBehaviour
             Vector3 pushDirection = new Vector3 (hit.moveDirection.x,0, hit.moveDirection.z);
             rigid.velocity = pushDirection*addForcePower;
         }
+    }
     }
 }
 
