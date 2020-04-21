@@ -44,21 +44,26 @@ public class CubeMove : MonoBehaviour
     
     private Vector3 moveDirection =  Vector3.zero;
     public Rigidbody rb;
+
+    /*Brackeys code for Inventory
     public Interactable focus;
     public LayerMask movementMask;
     Camera cam; 
-    PlayerMotor motor;
+    PlayerMotor motor; */
 
     // Start is called before the first frame update
-    void Start() {
+    /*Brackeys code for Inventory
+    void Start() 
+    {
         cam = Camera.main;
         motor=GetComponent<PlayerMotor>();
-    }
+    } */
 
     // Update is called once per frame
     void Update()
     {
         Movement();
+        /*Brackeys code for Inventory
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray=cam.ScreenPointToRay(Input.mousePosition);
@@ -69,6 +74,8 @@ public class CubeMove : MonoBehaviour
                 motor.MoveToPoint(hit.point);
                 RemoveFocus;
             }
+        }
+
         if(Input.GetMouseButtonDown(1))
         {
             Ray ray=cam.ScreenPointToRay(Input.mousePosition);
@@ -82,9 +89,10 @@ public class CubeMove : MonoBehaviour
                     SetFocus(interactable);
                 }
             }
-        }
+        } */
     }
 
+    /*Brackeys code for Inventory
     void SetFocus(Interactable newFocus)
     {
         focus = newFocus;
@@ -93,7 +101,8 @@ public class CubeMove : MonoBehaviour
     void RemoveFocus()
     {
         focus = null;
-    }
+    } */
+    
     void Movement()
     {
      CharacterController controller = GetComponent<CharacterController>();
@@ -128,7 +137,6 @@ public class CubeMove : MonoBehaviour
             Vector3 pushDirection = new Vector3 (hit.moveDirection.x,0, hit.moveDirection.z);
             rigid.velocity = pushDirection*addForcePower;
         }
-    }
     }
 }
 
