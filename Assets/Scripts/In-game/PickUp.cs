@@ -6,23 +6,35 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour
 {
 
-  public GameObject MessagePanel;
+  public GameObject MessagePanel1;
+  public GameObject MessagePanel2;
   public float radius= 3f;
+  public string tagObject;
 
   private void Start()
   {
      
   }
-   public void OpenMessagePanel()
+   public void OpenMessagePanel1()
   {
-      MessagePanel.SetActive(true);
+      MessagePanel1.SetActive(true);
   }
-
-  public void CloseMessagePanel()
+  public void OpenMessagePanel2()
+  {
+      MessagePanel2.SetActive(true);
+  }
+  public void CloseMessagePanel1()
   {
       //Menutup pesan Jika menjauh dari benda
-      MessagePanel.SetActive(false);
+      MessagePanel1.SetActive(false);
   }
+  public void CloseMessagePanel2()
+  {
+      //Menutup pesan Jika menjauh dari benda
+      MessagePanel2.SetActive(false);
+  }
+
+  
 
     void OnDrawGizmosSelected() {
     Gizmos.color = Color.yellow;
@@ -48,21 +60,29 @@ public class PickUp : MonoBehaviour
       //Maka pesan akan terlihat
     if(other.CompareTag("Player"))
     {
-        OpenMessagePanel();
+        OpenMessagePanel1();
+        Debug.Log("Collactable Item");
     }
-    Debug.Log("Collactable Item");
+    if(other.CompareTag("Player2"))
+    {
+        OpenMessagePanel2();
+        Debug.Log("Collactable Item");
+    }
+    
   }
   
-  /*private void OnTriggerExit(Collider other) {
+  private void OnTriggerExit(Collider other) {
       //Jika pemain sudah menjauh 
       //Maka pesan akan tertutup secara otomatis
-   Inventory item= other.GetComponent<Inventory>();
-   if(item != null)
+   //Inventory item= other.GetComponent<Inventory>();
+   /*if(item != null)
    {
        CloseMessagePanel();
-   }  
+   } */
+   CloseMessagePanel1();
+   CloseMessagePanel2(); 
   }
-  */
+  
 
   //Collision untuk Camera agar tidak nembus ke tembok
 
