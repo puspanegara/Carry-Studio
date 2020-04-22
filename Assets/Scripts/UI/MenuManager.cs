@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
 
     public void Level1()
     {
-        SceneManager.LoadScene("Prolog");
+        SceneManager.LoadScene("Prolog1");
     }
     public void Keluar()
     {
