@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - item
+  - Player2
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
