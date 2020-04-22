@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SplashScreen : MonoBehaviour
+public class SplashLayar : MonoBehaviour
 {
     public Image splashimg;
     public string Levelke;
