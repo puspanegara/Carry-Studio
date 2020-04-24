@@ -6,51 +6,27 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerMotor))]
 public class CubeMove : MonoBehaviour
 {
-    [Header("Controls")]
+    [Header("Controls")] //Judul Pada Inspector
     CharacterMove controls;
-    //kecepatan bergerak
-    public float moveSpeed;
-    //Kecepatan saat berputar ke kanan dan kiri
-    public float rotateSpeed;
-    //Kekuatan saat loncat
-    public float jumpPower;
-    //Besar gaya gravitasi yang digunakan
-    public  float gravity;
-    //Besar gaya dorong yang diberikan
-    public float addForcePower;
+    public float moveSpeed; //kecepatan bergerak
+    public float rotateSpeed;//Kecepatan saat berputar ke kanan dan kiri
+    public float jumpPower; //Kekuatan saat loncat
+    public  float gravity; //Besar gaya gravitasi yang digunakan
+    public float addForcePower; //Besar gaya dorong yang diberikan
 
-    [Header("Input Button")]
-     /*
-    Menulis jenis tombol yang digunakan 
-    untuk berputar ke kanan dan kiri
-    */
-    public string horizontalMove;
-   
-    /*
-    Menulis jenis tombol yang digunakan 
-    untuk maju dan mundur
-    */
-    public string verticalMove;
-     /*
-        Jenis tombol yang digunakan
-        untuk loncat
-    */
-    public string jumpButton;
-     /*
-        Satu tombol yang digunakan
-        untuk berbagai hal 
-    */
-    public string multiButton;
+    [Header("Input Button")] //Judul pada Inspector untuk input button
+    public string horizontalMove; //Jenis tombol yang digunakan, untuk berputar ke kanan dan kiri
+    public string verticalMove;  //Jenis tombol yang digunakan, untuk maju dan mundur   
+    public string jumpButton;  //Jenis tombol yang digunakan, untuk loncat
+    
+    public string multiButton; //Satu tombol yang digunakan, untuk berbagai hal
     
     private Vector3 moveDirection =  Vector3.zero;
-    public Rigidbody rb;
+    public Rigidbody rb; //Menggunakan Komponen Rigidbody
     Camera cam;
     PlayerMotor motor;
 
     public Interactable focus;
-
-    
-
     // Start is called before the first frame update
     void Start() {
         cam = Camera.main;
@@ -73,13 +49,13 @@ public class CubeMove : MonoBehaviour
     }
     void Movement()
     {
-     CharacterController controller = GetComponent<CharacterController>();
+     CharacterController controller = GetComponent<CharacterController>(); //Menggunakan CharacterController, terdapat pada inspector
             //Mengecek keberadaan diatas tanah
             if(controller.isGrounded) 
             {
                 //Membuat pemain agar dapat maju dan mundur 
                 //Dengan inputan 'verticalMove'
-                moveDirection= new  Vector3 (0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju
+                moveDirection= new  Vector3 (0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju-Mundur
                 moveDirection = transform.TransformDirection(moveDirection);
                 moveDirection *= moveSpeed;
 
@@ -87,7 +63,7 @@ public class CubeMove : MonoBehaviour
                 if(Input.GetButton(jumpButton))
                 moveDirection.y = jumpPower;
             }
-        moveDirection.y -= gravity *Time.deltaTime;
+        moveDirection.y -= gravity *Time.deltaTime; //Saat akan loncat
         controller.Move(moveDirection*Time.deltaTime); 
 
         //pemain berputar
@@ -96,11 +72,13 @@ public class CubeMove : MonoBehaviour
         transform.Rotate(0, Input.GetAxis(horizontalMove), 0);  
     }
 
-     void OnControllerColliderHit(ControllerColliderHit hit) {
+     void OnControllerColliderHit(ControllerColliderHit hit) 
+     {
 
         Rigidbody rigid= hit.collider.attachedRigidbody;
         if(rigid != null &&  rigid.isKinematic == false)
         {
+            //Membuat pemain dapat mendorong suatu benda yang ada di depannya
             Vector3 pushDirection = new Vector3 (hit.moveDirection.x,0, hit.moveDirection.z);
             rigid.velocity = pushDirection*addForcePower;
         }
