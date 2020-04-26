@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class CubeMove : MonoBehaviour
@@ -25,6 +26,7 @@ public class CubeMove : MonoBehaviour
     public Rigidbody rb; //Menggunakan Komponen Rigidbody
     Camera cam;
     PlayerMotor motor;
+    public GameObject InvetoryPanel; //Panel Inventory 
 
     public Interactable focus;
     // Start is called before the first frame update
@@ -36,8 +38,26 @@ public class CubeMove : MonoBehaviour
     void Update()
     {
         Movement();
+        //Invetory akan terbuka saat di tekan tombol X pada keyboard
+        if(Input.GetKey(KeyCode.X))
+        {
+            OpenmInventoryPanel();
+        }
+        else if(Input.GetKey(KeyCode.Z))
+        {
+            CloseInventoryPanel();
+        }
     }
 
+    //Membuat  Inventory di buka
+    public void OpenmInventoryPanel()
+    {
+        InvetoryPanel.SetActive(true);
+    }
+    public void CloseInventoryPanel()
+    {
+        InvetoryPanel.SetActive(false);
+    }
     void SetFocus(Interactable newFocus)
     {
         focus = newFocus;

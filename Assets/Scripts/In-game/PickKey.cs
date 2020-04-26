@@ -12,11 +12,11 @@ public class PickKey : MonoBehaviour
     {
         //Mendeteksi keberadaan kunci menggunakan Collider
         //Menganmbilnya dengan tombol 'E'
-     if(Input.GetKey(KeyCode.E))
-     {
-         doorColliderHere.GetComponent<BoxCollider>().enabled = true;
-         keyGone.SetActive(false);
+        if(Input.GetKey(KeyCode.E))
+        {
+            doorColliderHere.GetComponent<BoxCollider>().enabled = true;
+            keyGone.SetActive(false);
 
-     }   
+        }   
     }
 }

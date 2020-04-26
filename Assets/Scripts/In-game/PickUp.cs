@@ -11,6 +11,13 @@ public class PickUp : MonoBehaviour
     public GameObject MessagePanel2;
     public float radius= 3f;
     public string tagObject;
+    private Inventory inventory;
+    public GameObject itemButton;
+
+    private void Start() 
+    {
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();    
+    }
 
     //untuk membuka panel info Player1
     public void OpenMessagePanel1()
@@ -34,20 +41,21 @@ public class PickUp : MonoBehaviour
         //Menutup pesan Jika menjauh dari benda
         MessagePanel2.SetActive(false);
     }
-    private void OnTriggerEnter(Collider other) 
+    /*private void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("Player"))
         {
-            for(int i = 0; i < inventory.slots.Length; i++;)
+            for(int i = 0; i < inventory.slots.Length; i++)
             {
                 if (inventory.isFull[i] == false)
                 {
-                    inventory.isFull = true;
-                    Instantiate(itemBu)
+                    inventory.isFull[i] = true;
+                    Instantiate(itemButton, inventory.slots[i].transform, false);
+                    Destroy(gameObject);
+                    break;
                 }
             }
         } 
-        */
 
         //Jika benda dekat dengan player 
         //Maka pesan akan terlihat
@@ -60,8 +68,38 @@ public class PickUp : MonoBehaviour
         {
             OpenMessagePanel2();
             Debug.Log("Collactable Item");
+        }   
+    } */
+    private void OnTriggerStay(Collider other) 
+    {
+        //if (other.CompareTag("Player"))
+        //akan terambil bila sudah di tekan E
+        if(Input.GetKey(KeyCode.E))
+        {
+            for(int i = 0; i < inventory.slots.Length; i++)
+            {
+                if (inventory.isFull[i] == false)
+                {
+                    inventory.isFull[i] = true;
+                    Instantiate(itemButton, inventory.slots[i].transform, false);
+                    Destroy(gameObject);
+                    break;
+                }
+            }
+        } 
+
+        //Jika benda dekat dengan player 
+        //Maka pesan akan terlihat
+        if(other.CompareTag("Player"))
+        {
+            OpenMessagePanel1();
+            Debug.Log("Collactable Item");
         }
-        
+        if(other.CompareTag("Player2"))
+        {
+            OpenMessagePanel2();
+            Debug.Log("Collactable Item");
+        }   
     }
     
     private void OnTriggerExit(Collider other) 
