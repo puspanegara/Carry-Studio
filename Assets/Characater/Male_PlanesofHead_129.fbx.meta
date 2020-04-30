@@ -1,29 +1,11 @@
 fileFormatVersion: 2
-guid: 05269ea4599810048b4e5f95fd14fdf8
+guid: 7f857f4177a7aec47b9ab6ad148691d0
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: 8440248360967096626
-    second: Camera|CameraAction
-  - first:
-      74: -1139659289735671959
-    second: Camera|Male_PlanesofHead_128Action
-  - first:
-      74: -4791504522942941401
-    second: Armature|Armature|mixamo.com|Layer0
-  - first:
-      74: 4743084820616853705
-    second: Armature|CameraAction
-  - first:
-      74: -102575957953604266
-    second: Armature|Male_PlanesofHead_128Action
-  - first:
-      74: -78214578883147452
-    second: Male_PlanesofHead_128|CameraAction
-  - first:
-      74: 3135533631928486091
-    second: Male_PlanesofHead_128|Male_PlanesofHead_128Action
+      74: -203655887218126122
+    second: mixamo.com
   externalObjects:
   - first:
       type: UnityEngine:Material

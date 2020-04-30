@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prolog1.unity
     guid: aac837fbfff863e499a9bdfbb24f4880
+  - enabled: 1
+    path: Assets/Scenes/CobaAnimasiku.unity
+    guid: 45f57b12025bab84db0cd9a74f9269f6
   m_configObjects: {}

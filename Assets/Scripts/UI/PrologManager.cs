@@ -6,17 +6,28 @@ using UnityEngine.SceneManagement;
 public class PrologManager : MonoBehaviour
     
 {
+    public GameObject Textsatu;
+    public GameObject Textdua;
+    public GameObject Texttiga;
     public GameObject prolog1;
     public GameObject prolog2;
     public GameObject prolog3;
 
+    void Start()
+    {
+       
+    }
+
     public void dua()
     {
-        prolog2.SetActive(true);
-        prolog1.SetActive(false);
-        prolog3.SetActive(false);
+        if (Textsatu != null)
+        {
+            prolog2.SetActive(true);
+            prolog1.SetActive(false);
+            prolog3.SetActive(false);
 
-        Debug.Log("yaaa");
+            Debug.Log("yaaa");
+        }
     }
     public void tiga()
     {
