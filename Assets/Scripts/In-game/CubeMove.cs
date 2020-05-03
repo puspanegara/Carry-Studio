@@ -39,14 +39,12 @@ public class CubeMove : MonoBehaviour
     {
         Movement();
         //Invetory akan terbuka saat di tekan tombol X pada keyboard
-        if(Input.GetKey(KeyCode.X))
+        if (Input.GetButton(multiButton))
         {
-            OpenmInventoryPanel();
+            InvetoryPanel.SetActive(true);
         }
-        else if(Input.GetKey(KeyCode.Z))
-        {
-            CloseInventoryPanel();
-        }
+       
+        
     }
 
     //Membuat  Inventory di buka
