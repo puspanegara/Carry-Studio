@@ -85,7 +85,8 @@ public class GerakanPemainku : MonoBehaviour
         {
             //Membuat pemain agar dapat maju dan mundur 
             //Dengan inputan 'verticalMove'
-            moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical")); //Berjalan Maju-Mundur
+            anim.SetFloat("Mlayu", 1);
+            moveDirection = new Vector3(0, 0, Input.GetAxisRaw("Vertical")); //Berjalan Maju-Mundur
 
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= moveSpeed;
@@ -103,7 +104,7 @@ public class GerakanPemainku : MonoBehaviour
         //Berputar kekanan kiri untuk melihat sekeliling
         //Menggunakan Axis Horizontal
 
-        transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(0, Input.GetAxisRaw("Horizontal"), 0);
         Debug.Log("loo");
 
     }

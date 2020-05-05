@@ -16,6 +16,7 @@ public class Kontrollerku : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKey(KeyCode.Escape))
         {
             Pause.SetActive(true);
