@@ -634,12 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df89cb7d98ecfff44949c126f4886436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Textsatu: {fileID: 0}
-  Textdua: {fileID: 0}
-  Texttiga: {fileID: 0}
-  prolog1: {fileID: 486898131}
-  prolog2: {fileID: 1150774531}
-  prolog3: {fileID: 269753173}
 --- !u!95 &693148666
 Animator:
   serializedVersion: 3
@@ -1928,7 +1922,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 693148665}
-        m_MethodName: dua
+        m_MethodName: cussNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
