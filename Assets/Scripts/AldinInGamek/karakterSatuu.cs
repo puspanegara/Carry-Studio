@@ -1,29 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerMotor))]
-public class CubeMove : MonoBehaviour
+public class karakterSatuu : MonoBehaviour
 {
     [Header("Controls")] //Judul Pada Inspector
     CharacterMove controls;
     public float moveSpeed; //kecepatan bergerak
     public float rotateSpeed;//Kecepatan saat berputar ke kanan dan kiri
     public float jumpPower; //Kekuatan saat loncat
-    public  float gravity; //Besar gaya gravitasi yang digunakan
+    public float gravity; //Besar gaya gravitasi yang digunakan
     public float addForcePower; //Besar gaya dorong yang diberikan
 
     [Header("Input Button")] //Judul pada Inspector untuk input button
     public string horizontalMove; //Jenis tombol yang digunakan, untuk berputar ke kanan dan kiri
     public string verticalMove;  //Jenis tombol yang digunakan, untuk maju dan mundur   
     public string jumpButton;  //Jenis tombol yang digunakan, untuk loncat
-    
+
     public string multiButton; //Satu tombol yang digunakan, untuk berbagai hal
     public Animator anim;
     public GameObject PopUpBuku;
-    private Vector3 moveDirection =  Vector3.zero;
+    private Vector3 moveDirection = Vector3.zero;
     public Rigidbody rb; //Menggunakan Komponen Rigidbody
     Camera cam;
     PlayerMotor motor;
@@ -31,7 +28,8 @@ public class CubeMove : MonoBehaviour
 
     public Interactable focus;
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         cam = Camera.main;
     }
 
@@ -39,6 +37,7 @@ public class CubeMove : MonoBehaviour
     void Update()
     {
         Movement();
+        //Quaternion rotation =  Quaternion.LookRotation
         //Invetory akan terbuka saat di tekan tombol X pada keyboard
         if (Input.GetButton(multiButton))
         {
@@ -67,53 +66,65 @@ public class CubeMove : MonoBehaviour
     }
     void Movement()
     {
-     CharacterController controller = GetComponent<CharacterController>(); //Menggunakan CharacterController, terdapat pada inspector
-            //Mengecek keberadaan diatas tanah
-            if(controller.isGrounded) 
-            {
-                //Membuat pemain agar dapat maju dan mundur 
-                //Dengan inputan 'verticalMove'
-                moveDirection= new  Vector3 (0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju-Mundur
-                moveDirection = transform.TransformDirection(moveDirection);
-                moveDirection *= moveSpeed;
+        CharacterController controller = GetComponent<CharacterController>(); //Menggunakan CharacterController, terdapat pada inspector
+                                                                              //Mengecek keberadaan diatas tanah
+        if (controller.isGrounded)
+        {
+            //Membuat pemain agar dapat maju dan mundur 
+            //Dengan inputan 'verticalMove'
+            moveDirection = new Vector3(0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju-Mundur
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= moveSpeed;
+            anim.SetFloat("kecepatan", moveDirection.z);
 
-                //Pemain Loncat menggunakan 'jumpButton' 
-                if(Input.GetButton(jumpButton))
+            //Pemain Loncat menggunakan 'jumpButton' 
+            if (Input.GetButton(jumpButton))
                 moveDirection.y = jumpPower;
-            }
-        moveDirection.y -= gravity *Time.deltaTime; //Saat akan loncat
-        controller.Move(moveDirection*Time.deltaTime); 
+        }
+        moveDirection.y -= gravity * Time.deltaTime; //Saat akan loncat
+        controller.Move(moveDirection * Time.deltaTime);
 
         //pemain berputar
         //Berputar kekanan kiri untuk melihat sekeliling
         //Menggunakan Axis Horizontal
-        transform.Rotate(0, Input.GetAxis(horizontalMove), 0);  
+        transform.Rotate(0, Input.GetAxis(horizontalMove), 0);
     }
 
-     void OnControllerColliderHit(ControllerColliderHit hit) 
-     {
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
 
-        Rigidbody rigid= hit.collider.attachedRigidbody;
-        if(rigid != null &&  rigid.isKinematic == false)
+        Rigidbody rigid = hit.collider.attachedRigidbody;
+        if (rigid != null && rigid.isKinematic == false)
         {
             //Membuat pemain dapat mendorong suatu benda yang ada di depannya
-            Vector3 pushDirection = new Vector3 (hit.moveDirection.x,0, hit.moveDirection.z);
-            rigid.velocity = pushDirection*addForcePower;
+            Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+            rigid.velocity = pushDirection * addForcePower;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "PopUpBuku")
+        if (other.tag == "PopUpBuku")//muncul Pop Up petnjuk buku ketika masuk daerah trigger
         {
             PopUpBuku.SetActive(true);
         }
+       
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "PopUpBuku")
+        if (other.tag == "PopUpBuku")//hilang Pop Up petnjuk buku ketika keluar daerah trigger
         {
             PopUpBuku.SetActive(false);
         }
+        if (other.tag == "dorong")//animasi dorong ga jalan ketika keluar dari daerah trigger
+        {
+            anim.ResetTrigger("push");
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "dorong")//animasi dorong jalan ketika tetap di daerah trigger
+        {
+            anim.SetTrigger("push");
+        }
     }
 }
-
