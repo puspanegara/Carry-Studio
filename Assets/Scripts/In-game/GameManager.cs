@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     private Animator _doorAnimation;
 
+    
+
      void Awake() {
         _instance = this;
     }
@@ -47,4 +50,5 @@ public class GameManager : MonoBehaviour
         box1Correct = box2Correct = box3Correct = box4Correct = false;
         _doorAnimation.SetTrigger("openDoor");
     }
+     
 }
