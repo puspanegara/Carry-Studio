@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private Animator _doorAnimation;
 
-    
+
 
      void Awake() {
         _instance = this;
@@ -51,4 +51,5 @@ public class GameManager : MonoBehaviour
         _doorAnimation.SetTrigger("openDoor");
     }
      
+
 }
