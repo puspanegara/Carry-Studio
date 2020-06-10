@@ -12,9 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/stmm.unity
     guid: 94e74db8bf567b74ab8a16a3c12b7954
   - enabled: 1
-    path: Assets/Scenes/MainMenu1.unity
-    guid: 154927a99ed097a489ea2684243b477a
+    path: Assets/Scenes/Prolog.unity
+    guid: 0876d53d92a17f84c91aa9b4a066fcf0
   - enabled: 1
-    path: Assets/Scenes/Prolog1.unity
-    guid: aac837fbfff863e499a9bdfbb24f4880
-  m_configObjects: {}
+    path: Assets/Scenes/Basement.unity
+    guid: e9c196969b210ac4186f48c780a7e7b5
+  - enabled: 1
+    path: Assets/Scenes/RuangTamu.unity
+    guid: 10d29315b6eb8834198ce3a05c372fff
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: f11057bb5837368448a8e728979c7ac2,
+      type: 2}
+    enabled: {fileID: 0}
+    guid: {fileID: 0}
+    path: {fileID: 0}
