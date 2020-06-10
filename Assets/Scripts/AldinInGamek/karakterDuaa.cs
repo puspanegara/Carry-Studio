@@ -74,11 +74,18 @@ public class karakterDuaa : MonoBehaviour
             moveDirection = new Vector3(0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju-Mundur
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= moveSpeed;
-            anim.SetFloat("kecepatan", moveSpeed);
+            anim.SetFloat("jalandua", moveDirection.z);
 
             //Pemain Loncat menggunakan 'jumpButton' 
             if (Input.GetButton(jumpButton))
+            {
+                anim.SetBool("lompatdua", true);
                 moveDirection.y = jumpPower;
+            }
+            else
+            {
+                anim.SetBool("lompatdua", false);
+            }
         }
         moveDirection.y -= gravity * Time.deltaTime; //Saat akan loncat
         controller.Move(moveDirection * Time.deltaTime);

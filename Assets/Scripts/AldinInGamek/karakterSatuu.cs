@@ -38,6 +38,7 @@ public class karakterSatuu : MonoBehaviour
     {
         Movement();
         //Quaternion rotation =  Quaternion.LookRotation
+       
         //Invetory akan terbuka saat di tekan tombol X pada keyboard
         if (Input.GetButton(multiButton))
         {
@@ -76,10 +77,19 @@ public class karakterSatuu : MonoBehaviour
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= moveSpeed;
             anim.SetFloat("kecepatan", moveDirection.z);
+            //transform.rotation = Quaternion.LookRotation(moveDirection);
 
             //Pemain Loncat menggunakan 'jumpButton' 
             if (Input.GetButton(jumpButton))
+            {
+                anim.SetBool("lompatt", true);
                 moveDirection.y = jumpPower;
+            }
+            else
+            {
+                anim.SetBool("lompatt", false);
+            }
+
         }
         moveDirection.y -= gravity * Time.deltaTime; //Saat akan loncat
         controller.Move(moveDirection * Time.deltaTime);
