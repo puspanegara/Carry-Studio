@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Ground
   - Player1
+  - Interact
   layers:
   - Default
   - TransparentFX
