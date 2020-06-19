@@ -18,7 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Basement.unity
     guid: e9c196969b210ac4186f48c780a7e7b5
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Lantai 1.unity
+=======
+    path: Assets/Scenes/RuangTamu.unity
+>>>>>>> origin/Gabungan
     guid: 10d29315b6eb8834198ce3a05c372fff
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f11057bb5837368448a8e728979c7ac2,

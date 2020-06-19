@@ -8,8 +8,13 @@ TagManager:
   - Player2
   - Wall
   - Ground
+<<<<<<< HEAD
   - Player1
   - Interact
+=======
+  - PopUpBuku
+  - dorong
+>>>>>>> origin/Gabungan
   layers:
   - Default
   - TransparentFX

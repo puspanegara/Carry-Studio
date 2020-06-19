@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1102 &-8784260628327156202
 AnimatorState:
   serializedVersion: 5
@@ -27,6 +28,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> origin/Gabungan
 --- !u!1107 &-8783549302933902178
 AnimatorStateMachine:
   serializedVersion: 5
@@ -38,10 +41,14 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -2411276718984401745}
+<<<<<<< HEAD
     m_Position: {x: 290, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8784260628327156202}
     m_Position: {x: 250, y: 120, z: 0}
+=======
+    m_Position: {x: 280, y: 130, z: 0}
+>>>>>>> origin/Gabungan
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -51,7 +58,11 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+<<<<<<< HEAD
   m_DefaultState: {fileID: -8784260628327156202}
+=======
+  m_DefaultState: {fileID: -2411276718984401745}
+>>>>>>> origin/Gabungan
 --- !u!1102 &-2411276718984401745
 AnimatorState:
   serializedVersion: 5
@@ -62,8 +73,12 @@ AnimatorState:
   m_Name: AnimasiPopUpMisi
   m_Speed: 1
   m_CycleOffset: 0
+<<<<<<< HEAD
   m_Transitions:
   - {fileID: 1262635986266003062}
+=======
+  m_Transitions: []
+>>>>>>> origin/Gabungan
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -94,6 +109,15 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+<<<<<<< HEAD
+=======
+  - m_Name: misiPojok
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+>>>>>>> origin/Gabungan
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -107,6 +131,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!1101 &1262635986266003062
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -157,3 +182,5 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+=======
+>>>>>>> origin/Gabungan

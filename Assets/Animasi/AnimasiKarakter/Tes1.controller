@@ -277,13 +277,21 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
+<<<<<<< HEAD
   m_SpeedParameterActive: 0
+=======
+  m_SpeedParameterActive: 1
+>>>>>>> origin/Gabungan
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: e10d92a46ee1a7e4987882ffeba96330, type: 2}
   m_Tag: 
+<<<<<<< HEAD
   m_SpeedParameter: 
+=======
+  m_SpeedParameter: Direction
+>>>>>>> origin/Gabungan
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -411,6 +419,15 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+<<<<<<< HEAD
+=======
+  - m_Name: Speed
+    m_Type: 1
+    m_DefaultFloat: 1
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+>>>>>>> origin/Gabungan
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
