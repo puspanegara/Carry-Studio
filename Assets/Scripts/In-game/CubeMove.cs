@@ -26,9 +26,7 @@ public class CubeMove : MonoBehaviour
     public Rigidbody rb; //Menggunakan Komponen Rigidbody
     Camera cam;
     PlayerMotor motor;
-    public GameObject InvetoryPanel; //Panel Inventory 
 
-    public Interactable focus;
     // Start is called before the first frame update
     void Start() {
         cam = Camera.main;
@@ -37,40 +35,13 @@ public class CubeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        //Invetory akan terbuka saat di tekan tombol X pada keyboard
-        if (Input.GetButton(multiButton))
-        {
-            InvetoryPanel.SetActive(true);
-        }
-       
-        
+        Movement();    
     }
 
-    //Membuat  Inventory di buka
-    public void OpenmInventoryPanel()
-    {
-        InvetoryPanel.SetActive(true);
-    }
-    public void CloseInventoryPanel()
-    {
-        InvetoryPanel.SetActive(false);
-    }
-    void SetFocus(Interactable newFocus)
-    {
-        focus = newFocus;
-    }
-
-    void RemoveFocus()
-    {
-        focus = null;
-    }
     void Movement()
     {
      CharacterController controller = GetComponent<CharacterController>(); //Menggunakan CharacterController, terdapat pada inspector
-            //Mengecek keberadaan diatas tanah
-            if(controller.isGrounded) 
-            {
+           
                 //Membuat pemain agar dapat maju dan mundur 
                 //Dengan inputan 'verticalMove'
                 moveDirection= new  Vector3 (0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju-Mundur
@@ -80,7 +51,7 @@ public class CubeMove : MonoBehaviour
                 //Pemain Loncat menggunakan 'jumpButton' 
                 if(Input.GetButton(jumpButton))
                 moveDirection.y = jumpPower;
-            }
+            
         moveDirection.y -= gravity *Time.deltaTime; //Saat akan loncat
         controller.Move(moveDirection*Time.deltaTime); 
 

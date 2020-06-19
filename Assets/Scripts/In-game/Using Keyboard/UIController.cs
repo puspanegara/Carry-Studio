@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
         if(collision.gameObject.tag == "Interact")
         {
             interactText.SetActive(true);
+            Debug.Log("Interact");
         }
         else if (collision.gameObject.tag == "item")
         {
