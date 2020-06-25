@@ -6,9 +6,8 @@ public class PopUpManager : MonoBehaviour
 {
     public Animator anim;
 
-    /*private void Awake()
+    public void PopMisi1()
     {
-     
-        anim.SetBool("misiPojok", true);
-    }*/
+        anim.SetBool("Misi1", true);
+    }
 }

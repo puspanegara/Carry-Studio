@@ -6,7 +6,7 @@ public class karakterSatuu : MonoBehaviour
 {
     [Header("Controls")] //Judul Pada Inspector
     CharacterMove controls;
-    public float moveSpeed; //kecepatan bergerak
+     public float moveSpeed; //kecepatan bergerak
     public float rotateSpeed;//Kecepatan saat berputar ke kanan dan kiri
     public float jumpPower; //Kekuatan saat loncat
     public float gravity; //Besar gaya gravitasi yang digunakan
@@ -31,6 +31,8 @@ public class karakterSatuu : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        Animator anim = gameObject.GetComponent<Animator>();
+    
     }
 
     // Update is called once per frame
@@ -38,7 +40,6 @@ public class karakterSatuu : MonoBehaviour
     {
         Movement();
         //Quaternion rotation =  Quaternion.LookRotation
-       
         //Invetory akan terbuka saat di tekan tombol X pada keyboard
         if (Input.GetButton(multiButton))
         {
@@ -46,6 +47,7 @@ public class karakterSatuu : MonoBehaviour
         }
 
     }
+
 
     //Membuat  Inventory di buka
     public void OpenmInventoryPanel()
@@ -67,21 +69,15 @@ public class karakterSatuu : MonoBehaviour
     }
     void Movement()
     {
-        CharacterController controller = GetComponent<CharacterController>(); //Menggunakan CharacterController, terdapat pada inspector
-                                                                              //Mengecek keberadaan diatas tanah
+        CharacterController controller = GetComponent<CharacterController>(); 
         if (controller.isGrounded)
         {
-            //Membuat pemain agar dapat maju dan mundur 
-            //Dengan inputan 'verticalMove'
-            moveDirection = new Vector3(0, 0, Input.GetAxis(verticalMove)); //Berjalan Maju-Mundur
+            moveDirection = new Vector3(0, 0, Input.GetAxis(verticalMove));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= moveSpeed;
             anim.SetFloat("kecepatan", moveDirection.z);
-            //transform.rotation = Quaternion.LookRotation(moveDirection);
-
-            //Pemain Loncat menggunakan 'jumpButton' 
-            if (Input.GetButton(jumpButton))
-            {
+ 
+            if (Input.GetButton(jumpButton)) { 
                 anim.SetBool("lompatt", true);
                 moveDirection.y = jumpPower;
             }
@@ -89,14 +85,10 @@ public class karakterSatuu : MonoBehaviour
             {
                 anim.SetBool("lompatt", false);
             }
-
         }
-        moveDirection.y -= gravity * Time.deltaTime; //Saat akan loncat
+        moveDirection.y -= gravity * Time.deltaTime; 
         controller.Move(moveDirection * Time.deltaTime);
 
-        //pemain berputar
-        //Berputar kekanan kiri untuk melihat sekeliling
-        //Menggunakan Axis Horizontal
         transform.Rotate(0, Input.GetAxis(horizontalMove), 0);
     }
 
@@ -117,7 +109,7 @@ public class karakterSatuu : MonoBehaviour
         {
             PopUpBuku.SetActive(true);
         }
-       
+        
     }
     private void OnTriggerExit(Collider other)
     {
@@ -132,7 +124,7 @@ public class karakterSatuu : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "dorong")//animasi dorong jalan ketika tetap di daerah trigger
+       if (other.tag == "dorong")//animasi dorong jalan ketika tetap di daerah trigger
         {
             anim.SetTrigger("push");
         }

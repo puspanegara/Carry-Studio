@@ -77,16 +77,15 @@ public class karakterDuaa : MonoBehaviour
             anim.SetFloat("jalandua", moveDirection.z);
 
             //Pemain Loncat menggunakan 'jumpButton' 
-            if (Input.GetButton(jumpButton))
-            {
+            if (Input.GetButton(jumpButton)) { 
                 anim.SetBool("lompatdua", true);
-                moveDirection.y = jumpPower;
+            moveDirection.y = jumpPower;
             }
             else
             {
                 anim.SetBool("lompatdua", false);
             }
-        }
+    }
         moveDirection.y -= gravity * Time.deltaTime; //Saat akan loncat
         controller.Move(moveDirection * Time.deltaTime);
 
