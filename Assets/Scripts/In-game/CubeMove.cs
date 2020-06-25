@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerMotor))]
+
 public class CubeMove : MonoBehaviour
 {
     [Header("Controls")] //Judul Pada Inspector
@@ -25,7 +25,6 @@ public class CubeMove : MonoBehaviour
     private Vector3 moveDirection =  Vector3.zero;
     public Rigidbody rb; //Menggunakan Komponen Rigidbody
     Camera cam;
-    PlayerMotor motor;
 
     // Start is called before the first frame update
     void Start() {
